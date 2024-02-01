@@ -68,8 +68,10 @@ public class PinChange extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == change) {
             try {
-                String npin = pin.getText();
-                String rpin = repin.getText();
+                char[] npinChars = pin.getPassword();
+                char[] rpinChars = repin.getPassword();
+                String npin = new String(npinChars);
+                String rpin = new String(rpinChars);
 
                 if (!npin.equals(rpin)) {
                     JOptionPane.showMessageDialog(null, "El pin ingresado no coincide");

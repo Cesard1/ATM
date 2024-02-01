@@ -84,7 +84,8 @@ public class Login extends JFrame implements ActionListener{
       } else if (ae.getSource() == login){
         Conn conn = new Conn();
         String cardnumber = cardTextField.getText();
-        String pinnumber = nipTextField.getText();
+        char[] pinChars = nipTextField.getPassword();
+        String pinnumber = new String(pinChars);
         String query = "select * from login where cardnumber = '"+cardnumber+"' and pin = '"+pinnumber+"'";
         try{
             ResultSet rs = conn.s.executeQuery(query);
